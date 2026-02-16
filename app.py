@@ -15,7 +15,7 @@ st.divider()
 # Coluna 2: Sistema de Medição (O que deu erro)
 st.warning("📏 **Terceiros**")
 # IMPORTANTE: Substitua o link abaixo pelo link real que você usa para abrir a Medição
-st.link_button("Acessar Sistema de Medição", "COLE_AQUI_O_LINK_DO_APP_DE_MEDICAO")
+st.link_button("Acessar Sistema de Medição", "https://sistemamedicao.streamlit.app/")
 
 st.divider()
 
