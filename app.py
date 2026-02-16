@@ -18,7 +18,7 @@ st.markdown("""
 col_logo, col_titulo = st.columns([0.1, 0.9]) 
 
 with col_logo:
-    st.image("logo.png", width=120) 
+    st.image("logo.png", width=150) 
 
 with col_titulo:
     st.title("Central de Operações - Marcenaria")
