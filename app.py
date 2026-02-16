@@ -19,7 +19,7 @@ col_logo, col_titulo = st.columns([0.1, 0.9]) # Define colunas para logo e texto
 
 with col_logo:
     # O arquivo enviado foi 'logo.jpg'. Ajuste para 'logo.png' se necessário no GitHub.
-    st.image("logo.png", width=80) 
+    st.image("logo.png", width=100) 
 
 with col_titulo:
     st.title("Central de Operações - Marcenaria")
