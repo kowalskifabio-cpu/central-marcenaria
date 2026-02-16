@@ -14,12 +14,11 @@ st.markdown("""
     }
     </style>""", unsafe_allow_html=True)
 
-# Substituição do Foguete pela Logo mantendo proporção e alinhamento
-col_logo, col_titulo = st.columns([0.1, 0.9]) # Define colunas para logo e texto lado a lado
+# Substituição do Foguete pela Logo com aumento de 30% (width=104)
+col_logo, col_titulo = st.columns([0.1, 0.9]) 
 
 with col_logo:
-    # O arquivo enviado foi 'logo.jpg'. Ajuste para 'logo.png' se necessário no GitHub.
-    st.image("logo.png", width=80) 
+    st.image("logo.png", width=104) 
 
 with col_titulo:
     st.title("Central de Operações - Marcenaria")
