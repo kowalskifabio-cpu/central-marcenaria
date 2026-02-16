@@ -36,7 +36,7 @@ with col1:
 with col2:
     st.warning("📏 **Terceiros**")
     st.write("Controle de Medição")
-    st.link_button("Sistema de Medição", "https://sistema-medicao.streamlit.app")
+    st.link_button("Sistema de Medição", "https://sistemamedicao.streamlit.app/")
 
 with col3:
     st.success("🏗️ **Produção**")
