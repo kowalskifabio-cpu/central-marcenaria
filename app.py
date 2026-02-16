@@ -1,24 +1,28 @@
 import streamlit as st
 
-# Configurações Visuais
-st.set_page_config(page_title="Portal Marcenaria", page_icon="🪵")
+# Configurações Visuais - Wide expande a tela para os lados
+st.set_page_config(page_title="Portal Marcenaria", page_icon="🪵", layout="wide")
 
 st.title("🚀 Central de Operações - Marcenaria")
 st.markdown("Clique nos botões abaixo para acessar os sistemas:")
-
-# Coluna 1: Consultoria
-st.info("📊 **Consultoria**")
-st.link_button("Abrir Diagnóstico", "https://diagnostico-status-marcenaria.streamlit.app")
-
 st.divider()
 
-# Coluna 2: Sistema de Medição (O que deu erro)
-st.warning("📏 **Terceiros**")
-# IMPORTANTE: Substitua o link abaixo pelo link real que você usa para abrir a Medição
-st.link_button("Acessar Sistema de Medição", "https://sistemamedicao.streamlit.app/")
+# Criando 3 colunas iguais
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.info("📊 **Consultoria**")
+    st.write("Visão Geral e Diagnóstico")
+    st.link_button("Abrir Diagnóstico", "https://diagnostico-status-marcenaria.streamlit.app", use_container_width=True)
+
+with col2:
+    st.warning("📏 **Terceiros**")
+    st.write("Medição de Terceiros")
+    st.link_button("Acessar Medição", "https://sistemamedicao.streamlit.app/", use_container_width=True)
+
+with col3:
+    st.success("🏗️ **Produção**")
+    st.write("Status ERCI - Gates")
+    st.link_button("Status Operação", "https://status-operacao.streamlit.app", use_container_width=True)
 
 st.divider()
-
-# Coluna 3: Produção
-st.success("🏗️ **Produção**")
-st.link_button("Status Operação (ERCI)", "https://status-operacao.streamlit.app")
