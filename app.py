@@ -1,80 +1,73 @@
 import streamlit as st
 
-# 1. Configuração de tela wide
-st.set_page_config(page_title="Portal Status Marcenaria", layout="wide")
+# Configuração da página
+st.set_page_config(page_title="Central de Operações", layout="wide")
 
-# 2. CSS Blindado para Cores e Layout
+# CSS para forçar o visual da imagem de referência
 st.markdown("""
     <style>
-    /* Remove espaços inúteis no topo */
-    .block-container { padding-top: 1rem; }
-    
-    /* Configuração Geral dos Botões */
+    /* Estilo dos botões coloridos */
     div.stButton > button {
         width: 100% !important;
-        height: 120px !important;
-        border-radius: 15px !important;
-        font-size: 24px !important;
-        font-weight: bold !important;
+        height: 60px !important;
         color: white !important;
+        font-weight: bold !important;
+        border-radius: 8px !important;
         border: none !important;
-        transition: 0.3s;
-    }
-
-    /* FORÇANDO AS CORES POR COLUNA */
-    /* Botão 1 - Azul */
-    [data-testid="column"]:nth-of-type(1) div.stButton button {
-        background-color: #2E86C1 !important;
-    }
-    /* Botão 2 - Laranja/Bronze */
-    [data-testid="column"]:nth-of-type(2) div.stButton button {
-        background-color: #E67E22 !important;
-    }
-    /* Botão 3 - Verde */
-    [data-testid="column"]:nth-of-type(3) div.stButton button {
-        background-color: #27AE60 !important;
-    }
-
-    /* Efeito de destaque ao passar o mouse */
-    div.stButton > button:hover {
-        transform: scale(1.02);
-        filter: brightness(1.1);
     }
     
-    /* Centralizar títulos dos setores */
-    .setor-titulo {
-        text-align: center;
+    /* Cores exatas da referência */
+    /* Coluna 1 - Azul */
+    [data-testid="column"]:nth-of-type(1) div.stButton button { background-color: #2E86C1 !important; }
+    /* Coluna 2 - Laranja */
+    [data-testid="column"]:nth-of-type(2) div.stButton button { background-color: #E67E22 !important; }
+    /* Coluna 3 - Verde */
+    [data-testid="column"]:nth-of-type(3) div.stButton button { background-color: #27AE60 !important; }
+
+    /* Ajuste do cabeçalho */
+    .header-text {
+        font-size: 32px;
         font-weight: bold;
-        font-size: 20px;
-        margin-bottom: 10px;
-        color: #333;
+        margin-left: -20px;
+    }
+    .sub-text {
+        color: #666;
+        margin-top: -10px;
     }
     </style>
     """, unsafe_allow_html=True)
 
-# 3. Cabeçalho com o seu logo.png
-try:
-    st.image("logo.png", use_container_width=True)
-except:
-    st.error("Erro: O arquivo 'logo.png' não foi encontrado no seu GitHub.")
+# --- CABEÇALHO (Logo e Título lado a lado) ---
+col_logo, col_tit = st.columns([1, 8])
+with col_logo:
+    try:
+        st.image("logo.png", width=80)
+    except:
+        st.write("🪵")
 
-st.markdown("<h1 style='text-align: center;'>Portal de Gestão Operacional</h1>", unsafe_allow_html=True)
-st.divider()
+with col_tit:
+    st.markdown('<p class="header-text">Portal de Gestão Operacional</p>', unsafe_allow_html=True)
 
-# 4. Organização dos Botões lado a lado
+st.write("Selecione a operação desejada:")
+st.markdown("---")
+
+# --- CORPO (Botões com links e ícones) ---
 col1, col2, col3 = st.columns(3)
 
 with col1:
-    st.markdown("<div class='setor-titulo'>📋 CONSULTORIA</div>", unsafe_allow_html=True)
-    st.link_button("Abrir Diagnóstico", "https://diagnostico-status-marcenaria.streamlit.app", use_container_width=True)
+    st.markdown("🎯 **CONSULTORIA**")
+    st.caption("https://diagnostico-status-marcenaria.streamlit.app")
+    st.link_button("📋 Abrir Diagnóstico", "https://diagnostico-status-marcenaria.streamlit.app", use_container_width=True)
 
 with col2:
-    st.markdown("<div class='setor-titulo'>📏 TERCEIROS</div>", unsafe_allow_html=True)
-    st.link_button("Acessar Medição", "https://sistemamedicao.streamlit.app/", use_container_width=True)
+    st.markdown("📐 **TERCEIROS**")
+    st.caption("https://sistemamedicao.streamlit.app/")
+    st.link_button("📏 Acessar Medição", "https://sistemamedicao.streamlit.app/", use_container_width=True)
 
 with col3:
-    st.markdown("<div class='setor-titulo'>🏗️ PRODUÇÃO</div>", unsafe_allow_html=True)
-    st.link_button("Status Operação", "https://status-operacao.streamlit.app", use_container_width=True)
+    st.markdown("🏗️ **PRODUÇÃO**")
+    st.caption("https://status-operacao.streamlit.app")
+    st.link_button("🏠 Status Operação", "https://status-operacao.streamlit.app", use_container_width=True)
 
-st.divider()
-st.caption("Acesso restrito à equipe Status Marcenaria.")
+st.markdown("---")
+st.caption("Acesso restrito à equipe operacional.")
